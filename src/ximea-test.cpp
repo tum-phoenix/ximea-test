@@ -1,9 +1,13 @@
 #include <cstdlib>
+#include <cstring>
 #include <m3api/xiApi.h>
 
 int main() {
     HANDLE xiH;
     XI_IMG image;
+
+    memset(&image, 0, sizeof(image));
+    image.size = sizeof(XI_IMG);
 
     if (xiOpenDevice(0, &xiH) != XI_OK) {
         return EXIT_FAILURE;
