@@ -1,0 +1,19 @@
+
+dist: trusty
+sudo: required
+language: cpp
+compiler:
+  - clang
+  - gcc
+
+before_install:
+  - wget http://www.ximea.com/downloads/recent/XIMEA_Linux_SP.tgz
+  - tar xzf XIMEA_Linux_SP.tgz
+  - cd package
+  - echo -e "\n" | sudo ./install
+  - cd ..
+
+script:
+  - mkdir build
+  - cd build
+  - cmake .. && make
